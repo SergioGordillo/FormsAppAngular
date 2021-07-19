@@ -1,3 +1,30 @@
+# Can I try this web app? :open_mouth:
+
+Not, it is still being developed.
+
+# What can you do with this web app? :thinking:
+
+Still working on it.
+
+
+# Which technologies did I use to develop this app? :thinking:
+
+It is a web app made with Angular 12 + TypeScript + Bootstrap 5. <br>
+I used Angular-CLI to create my Angular App. <br>
+
+# Which is the purpose of this web app? :thinking:
+
+It is a web app I made based on Fernando Herrera Angular course 🧐. I havent made barely changes compared to the project that Fernando Herrera made on the course, but just because I want to learn and adquire the Angular knowledge 🤓. I know the styles are very basic, but I just focused on Angular stuff. I learnt with this project about:
+
+❤️ Good practices about making reusable components in Angular. <br>
+❤️ Good practices about Angular folder structure. <br>
+:heart: Using Router Module.<br>
+:heart: Using children routes.  <br>
+:heart: About Lazy Load. <br>
+:blue_heart: TypeScript. <br>
+:art: Bootstrap 5. <br>
+
+
 # FormsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
