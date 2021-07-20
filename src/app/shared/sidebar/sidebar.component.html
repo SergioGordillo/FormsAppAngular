@@ -1,1 +1,22 @@
-<p class="container">sidebar works!</p>
+<h2>Template</h2>
+<hr>
+
+<ul class="list-group">
+    <li class="list-group-item" 
+        *ngFor="let item of templateSidebar"
+        [routerLink]="[item.route]"
+        routerLinkActive="active"
+        >{{item.text}}</li>
+</ul>
+
+<h2 class="mt-5">Reactive</h2>
+<hr>
+
+<ul class="list-group">
+    <li class="list-group-item" 
+        *ngFor="let item of reactiveSidebar"
+        [routerLink]="[item.route]"
+        routerLinkActive="active"
+        >{{item.text}}</li>
+</ul>
+

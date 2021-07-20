@@ -1,1 +1,90 @@
-<p>basics works!</p>
+<h2>Basics Template</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="save(myForm)" 
+                #myForm="ngForm"
+                autocomplete="off">
+
+            <!-- Product field -->
+            <div class="mb-3">
+                <label class="col-sm-3 col-form-label">Product</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           ngModel
+                           name="product"
+                           placeholder="Name of the product"
+                           required
+                           minlength="3"/>
+
+
+
+                    <span 
+                        class="form-text text-danger"
+                        *ngIf="myForm.controls.product?.invalid && myForm.controls.product?.touched">
+                        It must contain at least three letters
+                    </span>
+
+
+
+                </div>
+            </div>
+
+            <!-- Price field -->
+            <div class="mb-3">
+                <label class="col-sm-3 col-form-label">Price</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           ngModel
+                           name="price"
+                           placeholder="Price of the product"
+                           required/>
+                </div>
+            </div>
+
+            <!-- Stock field -->
+            <div class="mb-3">
+                <label class="col-sm-3 col-form-label">Stock</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           ngModel
+                           name="stock"
+                           placeholder="Stock of the product"
+                           />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            class="btn btn-primary">
+                            Send
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{myForm.valid}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{myForm.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{myForm.touched}}</pre>
+
+        <span>Value</span>
+        <pre>{{myForm.value|json}}</pre>
+    </div>
+</div>
