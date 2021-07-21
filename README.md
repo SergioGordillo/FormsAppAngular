@@ -21,6 +21,7 @@ It is a web app I made based on Fernando Herrera Angular course 🧐. I havent m
 :heart: Using Router Module.<br>
 :heart: Using children routes.  <br>
 :heart: About Lazy Load. <br>
+:heart: Template Driven Forms with Angular Forms. <br>
 :blue_heart: TypeScript. <br>
 :art: Bootstrap 5. <br>
 
