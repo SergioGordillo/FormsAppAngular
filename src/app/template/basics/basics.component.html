@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col">
 
-        <form (ngSubmit)="save(myForm)" 
+        <form (ngSubmit)="save()" 
                 #myForm="ngForm"
                 autocomplete="off">
 
@@ -14,7 +14,7 @@
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
-                           ngModel
+                           [ngModel]="initForm.product"
                            name="product"
                            placeholder="Name of the product"
                            required
@@ -24,7 +24,7 @@
 
                     <span 
                         class="form-text text-danger"
-                        *ngIf="myForm.controls.product?.invalid && myForm.controls.product?.touched">
+                        *ngIf="validateName()">
                         It must contain at least three letters
                     </span>
 
@@ -39,11 +39,21 @@
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
-                           ngModel
+                           [ngModel]="initForm.price"
                            name="price"
                            placeholder="Price of the product"
+                           min="0"
                            required/>
                 </div>
+
+            <span 
+                    class="form-text text-danger"
+                    *ngIf="validatePrice()">
+                    Price must be 0 or greater
+            </span>
+
+
+
             </div>
 
             <!-- Stock field -->
@@ -52,9 +62,12 @@
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
-                           ngModel
+                           [ngModel]="initForm.stock"
                            name="stock"
+                           customMin
+                           [minimum]="0"
                            placeholder="Stock of the product"
+                           required
                            />
                 </div>
             </div>
@@ -62,6 +75,7 @@
             <div class="row">
                 <div class="col">
                     <button type="submit"
+                            [disabled]="myForm.invalid"
                             class="btn btn-primary">
                             Send
                     </button>
