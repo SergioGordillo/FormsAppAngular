@@ -1,4 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+interface Person{
+  name: string;
+  favoriteGames:FavoriteGames[]
+}
+
+interface FavoriteGames{
+  id: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-dynamics',
@@ -6,11 +17,23 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class DynamicsComponent implements OnInit {
+export class DynamicsComponent{
 
-  constructor() { }
+  @ViewChild('myForm') myForm!: NgForm
 
-  ngOnInit(): void {
+  person : Person =  {
+    name: "Sergio",
+    favoriteGames:[
+      {id: 1, name: "FIFA"},
+      {id:2, name: "Civilization"}
+
+    ]
+  }
+
+
+
+  save(){
+    console.log(this.myForm);
   }
 
 }
