@@ -41,7 +41,8 @@ export class DynamicsComponent{
       name: this.newGame
     }
 
-    this.person.favoriteGames.push(newFavoriteGame)
+    this.person.favoriteGames.push({...newFavoriteGame})
+    this.newGame='';
 
   }
 

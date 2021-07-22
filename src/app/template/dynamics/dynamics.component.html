@@ -36,13 +36,13 @@
                         <input
                         class="form-control"
                         placeholder="Add favorite game"
-
+                        [(ngModel)]="newGame"
+                        name="newGame"
+                        (keyup.enter)="add()"
                     > 
                      <button 
                         class="btn btn-outline-primary"
                         type="button" 
-                        [(ngModel)]="newGame"
-                        name="DynamicsComponent.newGame"
                         (click)="add()"
                         >
                         Add
