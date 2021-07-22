@@ -19,18 +19,35 @@ interface FavoriteGames{
 })
 export class DynamicsComponent{
 
+  newGame: string='';
+
   @ViewChild('myForm') myForm!: NgForm
 
   person : Person =  {
     name: "Sergio",
     favoriteGames:[
       {id: 1, name: "FIFA"},
-      {id:2, name: "Civilization"}
+      {id:2, name: "Civilization"},
+      {id:3, name: "Fortnite"}
 
     ]
   }
 
 
+  add(){
+
+    const newFavoriteGame: FavoriteGames = {
+      id: this.person.favoriteGames.length+1,
+      name: this.newGame
+    }
+
+    this.person.favoriteGames.push(newFavoriteGame)
+
+  }
+
+  delete(i:number){
+    this.person.favoriteGames.splice(i, 1);
+  }
 
   save(){
     console.log(this.myForm);
