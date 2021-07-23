@@ -1,1 +1,86 @@
-<p>basics works!</p>
+<h2>Basics Reactive</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+
+        <form autocomplete="off">
+
+            <!-- Product field -->
+            <div class="mb-3">
+                <label class="col-sm-3 col-form-label">Product</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Name of the product"/>
+
+
+
+                    <span 
+                        class="form-text text-danger">
+                        It must contain at least three letters
+                    </span>
+
+
+
+                </div>
+            </div>
+
+            <!-- Price field -->
+            <div class="mb-3">
+                <label class="col-sm-3 col-form-label">Price</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           placeholder="Price of the product"/>
+                </div>
+
+            <span class="form-text text-danger">
+                    Price must be 0 or greater
+            </span>
+
+
+
+            </div>
+
+            <!-- Stock field -->
+            <div class="mb-3">
+                <label class="col-sm-3 col-form-label">Stock</label>
+                <div class="col-sm-9">
+                    <input type="number"
+                           class="form-control"
+                           placeholder="Stock of the product"
+                           />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button type="submit"
+                            class="btn btn-primary">
+                            Send
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre></pre>
+
+        <span>Pristine</span>
+        <pre></pre>
+
+        <span>Touched</span>
+        <pre></pre>
+
+        <span>Value</span>
+        <pre></pre>
+    </div>
+</div>
+
