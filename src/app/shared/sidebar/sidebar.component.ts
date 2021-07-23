@@ -8,7 +8,11 @@ interface SidebarItem {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styles: [
+  styles: [`
+    li{
+      cursor: pointer;
+    }
+  `
   ]
 })
 export class SidebarComponent{
