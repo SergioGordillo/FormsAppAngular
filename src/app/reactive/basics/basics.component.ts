@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class BasicsComponent{
+
+  myForm:FormGroup=new FormGroup({
+    'name': new FormControl('Google Nest'),
+    
+  });
 
   constructor() { }
 

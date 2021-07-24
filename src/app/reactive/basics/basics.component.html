@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col">
 
-        <form autocomplete="off">
+        <form autocomplete="off"
+              [formGroup]="myForm"  >
 
             <!-- Product field -->
             <div class="mb-3">
@@ -12,6 +13,7 @@
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
+                           formControlName="name"
                            placeholder="Name of the product"/>
 
 
@@ -71,16 +73,16 @@
 <div class="row">
     <div class="col">
         <span>Valid</span>
-        <pre></pre>
+        <pre>{{myForm.valid}}</pre>
 
         <span>Pristine</span>
-        <pre></pre>
+        <pre>{{myForm.pristine}}</pre>
 
         <span>Touched</span>
-        <pre></pre>
+        <pre>{{myForm.touched}}</pre>
 
         <span>Value</span>
-        <pre></pre>
+        <pre>{{myForm.value|json}}</pre>
     </div>
 </div>
 
