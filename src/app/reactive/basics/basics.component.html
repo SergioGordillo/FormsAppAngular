@@ -16,8 +16,6 @@
                            formControlName="name"
                            placeholder="Name of the product"/>
 
-
-
                     <span 
                         class="form-text text-danger">
                         It must contain at least three letters
@@ -34,6 +32,7 @@
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
+                           formControlName="price"
                            placeholder="Price of the product"/>
                 </div>
 
@@ -51,6 +50,7 @@
                 <div class="col-sm-9">
                     <input type="number"
                            class="form-control"
+                           formControlName="stock"
                            placeholder="Stock of the product"
                            />
                 </div>
@@ -59,7 +59,8 @@
             <div class="row">
                 <div class="col">
                     <button type="submit"
-                            class="btn btn-primary">
+                            class="btn btn-primary"
+                            [disabled]="myForm.invalid">
                             Send
                     </button>
                 </div>
