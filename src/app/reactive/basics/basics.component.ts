@@ -23,4 +23,8 @@ export class BasicsComponent{
 
   constructor(private fb: FormBuilder) { }
 
+  validateField(field:string){
+    return this.myForm.controls[field].errors && this.myForm.controls[field].touched
+  }
+
 }

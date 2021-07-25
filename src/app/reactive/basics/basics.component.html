@@ -16,7 +16,7 @@
                            formControlName="name"
                            placeholder="Name of the product"/>
 
-                    <span 
+                    <span *ngIf="validateField('name')"
                         class="form-text text-danger">
                         It must contain at least three letters
                     </span>
@@ -36,7 +36,8 @@
                            placeholder="Price of the product"/>
                 </div>
 
-            <span class="form-text text-danger">
+            <span  *ngIf="validateField('price')"
+                    class="form-text text-danger">
                     Price must be 0 or greater
             </span>
 
@@ -56,7 +57,12 @@
                 </div>
             </div>
 
-            <div class="row">
+            <span  *ngIf="validateField('stock')"
+                    class="form-text text-danger">
+            Stocks must be 0 or greater
+            </span>
+
+            <div class="row mt-3">
                 <div class="col">
                     <button type="submit"
                             class="btn btn-primary"
