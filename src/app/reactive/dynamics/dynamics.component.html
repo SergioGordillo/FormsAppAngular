@@ -1,20 +1,22 @@
 <h2>Dynamics Reactive</h2>
 <hr>
 
-<form autocomplete="off"
-       >
+<form  (ngSubmit)="save()"
+       autocomplete="off"
+       [formGroup]="myForm">
 
        <!-- Name -->
     <div class="mb-3">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-9">
-            <input
-                class="form-control"
-                placeholder="Write your name"
+            <input  type="text"
+                    class="form-control"
+                    formControlName="name"
+                    placeholder="Write your name"
             > 
 
-            <span 
-                class="form-text text-danger">
+            <span *ngIf="validateField('name')"
+                   class="form-text text-danger">
                     This field is compulsory
             </span>
 
@@ -29,11 +31,15 @@
                     <div class="input-group">
                         <input
                         class="form-control"
+                        [formControl]="newGame"
                         placeholder="Add favorite game"
+                        (keyup.enter)="add()"
+                       
                     > 
                      <button 
                         class="btn btn-outline-primary"
                         type="button" 
+                        (click)="add()"
                         >
                         Add
                     </button>
@@ -46,15 +52,19 @@
         <!-- List of favourite games -->
         <div class="mb-3">
             <label class="col-sm-3 col-form-label">Favorite games</label>
-            <div class="col-sm-9">
+            <div class="col-sm-9" formArrayName="favoriteGame">
 
-                <div class="input-group mb-2">
+                <div class="input-group mb-2"
+                     *ngFor="let favoriteGame of favoriteArray.controls; let i=index">
                     <input 
-                    class="form-control"> 
+                    class="form-control"
+                    [formControlName]="i"
+                    > 
 
                     <button 
                     class="btn btn-outline-danger"
-                    type="button" 
+                    type="button"
+                    (click)="delete(i)"
                     >
                     Delete
                 </button>
@@ -69,7 +79,7 @@
     <div class="row">
         <div class="col-sm-9">
             <button
-                type="button"
+                type="submit"
                 class="btn btn-primary float-end"
             >
                 Save
@@ -87,3 +97,22 @@
 
 <span>Add new Game</span>
 <pre></pre>
+
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{myForm.valid}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{myForm.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{myForm.touched}}</pre>
+
+        <span>Value</span>
+        <pre>{{myForm.value|json}}</pre>
+
+        <span>Add game</span>
+        <pre>{{newGame.value}}</pre>
+    </div>
+</div>
