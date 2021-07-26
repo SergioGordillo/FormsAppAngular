@@ -1,7 +1,8 @@
 <h2>Switches Reactive</h2>
 <hr>
 
-<form autocomplete="off"
+<form  [formGroup]="myForm"
+       autocomplete="off"
        >
        <!-- Radio -->
        <div class="row mb-3">
@@ -11,9 +12,9 @@
                             <input 
                                    class="form-check-input" 
                                    type="radio" 
-                                   value="M"
-                                   name="genderRadio" 
-                                   id="maleRadio">
+                                   value="M" 
+                                   id="maleRadio"
+                                   formControlName="gender">
                             <label class="form-check-label" for="maleRadio">
                               Male
                             </label>
@@ -22,9 +23,9 @@
                             <input 
                                    class="form-check-input" 
                                    type="radio" 
-                                   name="genderRadio" 
                                    value="F"
-                                   id="femaleRadio">
+                                   id="femaleRadio"
+                                   formControlName="gender">
                             <label class="form-check-label" for="femaleRadio">
                               Female
                             </label>
@@ -42,7 +43,8 @@
                      <div class="form-check form-switch mt-2">
                             <input class="form-check-input" 
                                    type="checkbox" 
-                                   id="notifications">
+                                   id="notifications"
+                                   formControlName="notifications">
                             <label class="form-check-label" for="notifications">I want to receive notifications</label>
                      </div>
               </div>
@@ -56,7 +58,8 @@
                             <input 
                                    class="form-check-input" 
                                    type="checkbox" 
-                                   id="termsAndConditions">
+                                   id="termsAndConditions"
+                                   formControlName="termsAndConditions">
                             <label class="form-check-label" for="termsAndConditions">
                               I have read them and I accept them
                             </label>
@@ -73,8 +76,8 @@
 </form>
 
 <h5 class="mt-5">Form value</h5>
-<pre></pre>
+<pre>{{myForm.value|json}}</pre>
 <br>
-<h5>Valid</h5>
-<pre></pre>
+<h5>Person</h5>
+<pre>{{person|json}}</pre>
 <br>
