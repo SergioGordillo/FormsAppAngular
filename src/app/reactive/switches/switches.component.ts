@@ -22,7 +22,14 @@ export class SwitchesComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
   ngOnInit(){
-    this.myForm.reset({...this.person, termsAndConditions:true});
+    this.myForm.reset({...this.person, termsAndConditions:false});
+  }
+
+  save(){
+    const formValue={...this.myForm.value}; 
+    delete formValue.termsAndConditions;
+    
+    this.person=formValue;
   }
 
 }
