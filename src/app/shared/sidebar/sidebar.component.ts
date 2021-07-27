@@ -47,6 +47,17 @@ export class SidebarComponent{
     }
   ];
 
+  authSidebar:SidebarItem[]=[
+    {
+      text: "Registration",
+      route: "./auth/registration"
+    }, 
+    {
+      text: "Login",
+      route: "./auth/login"
+    }
+  ];
+
   constructor() { }
 
 

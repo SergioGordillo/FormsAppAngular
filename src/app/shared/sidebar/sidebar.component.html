@@ -20,3 +20,14 @@
         >{{item.text}}</li>
 </ul>
 
+<h2 class="mt-5">Validations</h2>
+<hr>
+
+<ul class="list-group">
+    <li class="list-group-item" 
+        *ngFor="let item of authSidebar"
+        [routerLink]="[item.route]"
+        routerLinkActive="active"
+        >{{item.text}}</li>
+</ul>
+
