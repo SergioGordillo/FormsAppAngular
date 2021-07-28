@@ -1,1 +1,82 @@
-<p>registration works!</p>
+<h2>Reactive Validations</h2>
+<br>
+
+<div class="row">
+    <div class="col-9">
+        <form autocomplete="off" [formGroup]="myForm">
+
+            <!-- Name -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Name</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Write your name"     
+                      />
+
+                      <span class="form-text text-danger">
+                        It must contain a name and a surname 
+                      </span>
+
+                </div>
+            </div>
+
+             <!-- Email -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email"
+                    class="form-control"
+                    placeholder="Write your email"     
+                      />
+                </div>
+            </div>
+
+            <!-- Username -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+                    <input type="text"
+                    class="form-control"
+                    placeholder="Write your username"     
+                      />
+                </div>
+            </div>
+
+             <!-- Password -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password"
+                    class="form-control"
+                    placeholder="Write your password"     
+                      />
+                </div>
+            </div>
+
+            <!-- Password Confirmation -->
+            <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Confirm password</label>
+                <div class="col-sm-9">
+                    <input type="password"
+                    class="form-control"
+                    placeholder="Confirm your password"     
+                      />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary float-end">
+                        Create account
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+        </form>
+    </div>
+</div>
