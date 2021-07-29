@@ -24,6 +24,7 @@ It is a web app I made based on Fernando Herrera Angular course 🧐. I havent m
 :heart: Template Driven Forms with Angular Forms. <br>
 :heart: Reactive Forms. <br>
 :heart: Customized Directives. <br>
+:heart: Form Fields Validations with Regular Expressions <br>
 :blue_heart: TypeScript. <br>
 :art: Bootstrap 5. <br>
 
