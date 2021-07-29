@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-9">
-        <form autocomplete="off" [formGroup]="myForm">
+        <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="createAccount()">
 
             <!-- Name -->
             <div class="row mb-3">
@@ -11,10 +11,11 @@
                 <div class="col-sm-9">
                     <input type="text"
                     class="form-control"
-                    placeholder="Write your name"     
+                    placeholder="Write your name"    
+                    formControlName="name" 
                       />
 
-                      <span class="form-text text-danger">
+                      <span *ngIf="notAValidField('name')" class="form-text text-danger">
                         It must contain a name and a surname 
                       </span>
 
@@ -67,7 +68,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary float-end">
+                    <button class="btn btn-primary float-end" type="submit">
                         Create account
                     </button>
                 </div>
@@ -78,5 +79,7 @@
 
 
         </form>
+
+        <h2>Is the form valid? {{myForm.valid}}</h2>
     </div>
 </div>
