@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
+import { EmailValidatorService } from '../../../shared/validator/email-validator.service';
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +14,7 @@ export class RegistrationComponent implements OnInit {
 
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(this.vs.nameSurnamePattern)] ],
-    email: ['', [Validators.required, Validators.pattern(this.vs.emailPattern) ] ],
+    email: ['', [Validators.required, Validators.pattern(this.vs.emailPattern) ], [this.ev.validate] ],
     username: ['', [Validators.required, this.vs.itCannotBeStrider] ],
     password: ['', [Validators.required, Validators.minLength(6)] ],
     password2: ['', [Validators.required] ],
@@ -23,7 +24,9 @@ export class RegistrationComponent implements OnInit {
     validators: [this.vs.fieldsAreEqual("password", "password2")]
   })
 
-  constructor(private fb:FormBuilder, private vs:ValidatorService) { }
+  constructor(private fb:FormBuilder, 
+              private vs:ValidatorService,
+              private ev:EmailValidatorService) { }
 
   ngOnInit(): void {
     this.myForm.reset({

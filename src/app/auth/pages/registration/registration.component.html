@@ -107,5 +107,8 @@
         </form>
 
         <h2>Is the form valid? {{myForm.valid}}</h2>
+
+        <h5>Email</h5>
+        <pre>{{ myForm.controls.email.errors | json }}</pre>
     </div>
 </div>
