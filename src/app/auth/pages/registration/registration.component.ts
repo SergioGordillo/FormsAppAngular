@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,18 +10,27 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  nameSurnamePattern: string ="([a-zA-Z]+) ([a-zA-Z]+)"
-
-
 
   myForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern(this.nameSurnamePattern)] ]
+    name: ['', [Validators.required, Validators.pattern(this.vs.nameSurnamePattern)] ],
+    email: ['', [Validators.required, Validators.pattern(this.vs.emailPattern) ] ],
+    username: ['', [Validators.required, this.vs.itCannotBeStrider] ],
+    password: ['', [Validators.required, Validators.minLength(6)] ],
+    password2: ['', [Validators.required] ],
 
+
+  }, {
+    validators: [this.vs.fieldsAreEqual("password", "password2")]
   })
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private vs:ValidatorService) { }
 
   ngOnInit(): void {
+    this.myForm.reset({
+      name: 'Fernando Herrera',
+      email: "test1@test.com",
+      username: 'fer85'
+    })
   }
 
   notAValidField(field:string){
