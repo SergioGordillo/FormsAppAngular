@@ -32,8 +32,17 @@
                     placeholder="Write your email"     
                       />
 
-                    <span *ngIf="notAValidField('email')" class="form-text text-danger">
+                    <span *ngIf="emailRequired()" class="form-text text-danger">
                         The email is compulsory
+                    </span>
+
+                    
+                    <span *ngIf="emailFormat()" class="form-text text-danger">
+                        The email does not have an email format
+                    </span>
+
+                    <span *ngIf="emailAlreadyExists()" class="form-text text-danger">
+                        The email has already an account created, choose another one
                     </span>
 
 
@@ -94,7 +103,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary float-end" type="submit">
+                    <button class="btn btn-primary float-end" [disabled]="myForm.invalid" type="submit">
                         Create account
                     </button>
                 </div>

@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AbstractControl} from '@angular/forms';
-import { Observable, of, timer } from 'rxjs';
+import { of, timer } from 'rxjs';
 import { map, switchMap} from 'rxjs/operators';
 import { UserService } from '../../auth/services/user.service';
 

@@ -32,14 +32,22 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.myForm.reset({
       name: 'Fernando Herrera',
-      email: "test1@test.com",
-      username: 'fer85'
+      email: "test1@test.com", 
+      username: 'fer85',
+      password: 123456,
+      password2: 123456 
     })
   }
 
   notAValidField(field:string){
-    return this.myForm.get(field)?.invalid && this.myForm.get(field)?.touched;
+    return this.myForm.get(field)?.errors?.required && this.myForm.get(field)?.touched;
   }
+
+  emailRequired(){ return this.myForm.get('email')?.errors?.required && this.myForm.get('email')?.touched;}
+
+  emailFormat(){return this.myForm.get('email')?.errors?.pattern && this.myForm.get('email')?.touched;}
+
+  emailAlreadyExists(){return this.myForm.get('email')?.errors?.emailAlreadyExists && this.myForm.get('email')?.touched;}
 
   createAccount(){
     
