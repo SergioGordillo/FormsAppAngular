@@ -1,25 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AbstractControl, AsyncValidator, ValidationErrors } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map} from 'rxjs/operators';
+import { AbstractControl} from '@angular/forms';
+import { Observable, of, timer } from 'rxjs';
+import { map, switchMap} from 'rxjs/operators';
+import { UserService } from '../../auth/services/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmailValidatorService implements AsyncValidator {
+export class EmailValidatorService{
 
-  constructor(private http:HttpClient) { }
+  static validate(us: UserService) {
 
-  validate(control: AbstractControl): Observable<ValidationErrors | null> {
+    return (control:AbstractControl) => {
+      if (control.pristine) {
+        return of(null); 
+      } 
 
-    const email=control.value; 
-    console.log(email);
-    return this.http.get<any[]>(`http://localhost:3000/users?q=${email}`)
-        .pipe(
-          map(resp=>{
-              return (resp.length===0) ? null : {emailAlreadyExists: true}
-          })
-        );
+      return timer(500).pipe(
+          switchMap(()=>{
+            return us.validateEmail(control.value)
+          }), map (resp=> resp?.length===0 ? null : {emailAlreadyExists: true})
+          )
+    }
+
   }
 }
