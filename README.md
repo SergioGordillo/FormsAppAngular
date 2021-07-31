@@ -25,6 +25,8 @@ It is a web app I made based on Fernando Herrera Angular course 🧐. I havent m
 :heart: Reactive Forms. <br>
 :heart: Customized Directives. <br>
 :heart: Form Fields Validations with Regular Expressions. <br>
+:heart: Async Validations with Reactive Forms. <br>
+:heart: Customized error messages. <br>
 :blue_heart: TypeScript. <br>
 :art: Bootstrap 5. <br>
 
