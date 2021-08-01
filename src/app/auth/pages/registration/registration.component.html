@@ -32,19 +32,9 @@
                     placeholder="Write your email"     
                       />
 
-                    <span *ngIf="emailRequired()" class="form-text text-danger">
-                        The email is compulsory
+                    <span *ngIf="notAValidField('email')" class="form-text text-danger">
+                        {{emailErrorMsg}}
                     </span>
-
-                    
-                    <span *ngIf="emailFormat()" class="form-text text-danger">
-                        The email does not have an email format
-                    </span>
-
-                    <span *ngIf="emailAlreadyExists()" class="form-text text-danger">
-                        The email has already an account created, choose another one
-                    </span>
-
 
                 </div>
             </div>

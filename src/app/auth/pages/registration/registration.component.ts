@@ -25,6 +25,22 @@ export class RegistrationComponent implements OnInit {
     validators: [this.vs.fieldsAreEqual("password", "password2")]
   })
 
+  get emailErrorMsg():string{
+    const errors=this.myForm.get("email")?.errors;
+
+    if(errors?.required){
+      return "The email is compulsory";
+    } else if (errors?.pattern){
+      return "The email does not have an email format";
+    } else if (errors?.emailAlreadyExists) {
+      return "The email has already an account created, choose another one";
+    }
+
+    return "";
+  };
+
+ 
+
   constructor(private fb:FormBuilder, 
               private vs:ValidatorService,
               private us:UserService) { }
@@ -40,14 +56,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   notAValidField(field:string){
-    return this.myForm.get(field)?.errors?.required && this.myForm.get(field)?.touched;
+    return this.myForm.get(field)?.invalid && this.myForm.get(field)?.touched;
   }
 
-  emailRequired(){ return this.myForm.get('email')?.errors?.required && this.myForm.get('email')?.touched;}
-
-  emailFormat(){return this.myForm.get('email')?.errors?.pattern && this.myForm.get('email')?.touched;}
-
-  emailAlreadyExists(){return this.myForm.get('email')?.errors?.emailAlreadyExists && this.myForm.get('email')?.touched;}
 
   createAccount(){
     
