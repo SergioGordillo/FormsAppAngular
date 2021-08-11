@@ -1,11 +1,34 @@
+<img src="https://github.com/SergioGordillo/FormsAppAngular/blob/master/basics-reactive-form.png" alt="Image of a form of the app"/>
+
 # Can I try this web app? :open_mouth:
 
-Not, it is still being developed.
+You can download the project, install the `node_modules` with the command `npm install` and later you will need to use a `JSON Server` and mock some data with the following structure:
+
+`{
+    "users": [
+        {
+            "id": 1,
+            "email": "test1@test.com",
+            "username": "test1"
+        },
+        {
+            "id": 2,
+            "email": "test2@test.com",
+            "username": "test2"
+        },
+        {
+            "id": 3,
+            "email": "test3@test.com",
+            "username": "test3"
+        }
+    ]
+}`
+
+You can use this, for instance. Later, you will start your JSON Server with the following command `json-server --watch db.json` and you will start this application (front-end part) with the command `ng -o serve`. I haven't deployed it because this app does not have interesting functionalities for the users, it has just been done for learning purposes.
 
 # What can you do with this web app? :thinking:
 
-Still working on it.
-
+Basically add information from a form and manage this information with template driven forms and reactive forms Angular approach. The purpose of this app has just been learning how to work with forms in Angular, so it is an app which is not useful for end users.
 
 # Which technologies did I use to develop this app? :thinking:
 
